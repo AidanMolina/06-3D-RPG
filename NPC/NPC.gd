@@ -13,11 +13,10 @@ func _ready():
 	$AnimationPlayer.play("Idle")
 	Dialogue.connect("finished_dialogue", self, "finished")
 
-func _on_Area_body_entered(_body):
+func _on_Area_body_entered(body):
 	Dialogue.start_dialogue(dialogue)
 
-
-func _on_Area_body_exited(_body):
+func _on_Area_body_exited(body):
 	Dialogue.hide_dialogue()
 
 func finished():
