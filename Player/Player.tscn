@@ -4638,7 +4638,7 @@ animation = "Idle"
 animation = "Run"
 
 [sub_resource type="AnimationNodeBlendTree" id=22]
-graph_offset = Vector2( -151.35, 65.4075 )
+graph_offset = Vector2( 0, 312 )
 nodes/Idle/node = SubResource( 19 )
 nodes/Idle/position = Vector2( 130, 70 )
 nodes/Idle_Run/node = SubResource( 20 )
@@ -4649,9 +4649,11 @@ nodes/output/position = Vector2( 760, 150 )
 node_connections = [ "output", 0, "Idle_Run", "Idle_Run", 0, "Idle", "Idle_Run", 1, "Run" ]
 
 [node name="Player" type="KinematicBody"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1.92101, 0.21824 )
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1.83691, 0.21824 )
 shape = SubResource( 1 )
 
 [node name="Root" type="Spatial" parent="."]
@@ -4889,7 +4891,7 @@ skin = SubResource( 3 )
 material/0 = SubResource( 4 )
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Root/Skeleton"]
-transform = Transform( -0.859449, 0.111951, 0.498823, 0.406657, -0.441609, 0.799761, 0.309816, 0.890194, 0.334015, -0.65664, 1.30617, 0.282016 )
+transform = Transform( -0.828884, 0.125977, 0.545062, 0.429937, -0.479937, 0.764735, 0.357931, 0.868209, 0.34365, -0.660433, 1.3258, 0.242627 )
 bone_name = "right_hand_thumb_1"
 
 [node name="blasterG" parent="Root/Skeleton/BoneAttachment" instance=ExtResource( 2 )]

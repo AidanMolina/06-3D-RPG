@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://UI/Dialogue.gd" type="Script" id=7]
 [ext_resource path="res://NPC/NPC.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/UI.gd" type="Script" id=9]
+[ext_resource path="res://Drone/Drone.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 1, 0, 0, 1 )
@@ -41,6 +42,7 @@ transform = Transform( -1, 5.65818e-08, -3.20891e-07, 0, 0.984808, 0.173648, 3.2
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 enabled = true
 cast_to = Vector3( 0, 0, 100 )
+collision_mask = 4
 script = ExtResource( 5 )
 
 [node name="Reticule" type="Position3D" parent="Player/Pivot/RayCast"]
@@ -58,18 +60,33 @@ visible = false
 
 [node name="Target" parent="Target_Container" instance=ExtResource( 4 )]
 transform = Transform( 5.63816, 0, 2.05212, 0, 6, 0, -2.05212, 0, 5.63816, -27, 4, 9 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Target2" parent="Target_Container" instance=ExtResource( 4 )]
 transform = Transform( -4.49852, 0, -3.97031, 0, 6, 0, 3.97031, 0, -4.49852, 4.03987, 4, -36.7201 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Target3" parent="Target_Container" instance=ExtResource( 4 )]
 transform = Transform( 4.35246, 0, -4.1299, 0, 6, 0, 4.1299, 0, 4.35246, -38.1171, 2.17588, -39.6298 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Target4" parent="Target_Container" instance=ExtResource( 4 )]
 transform = Transform( 5.63816, 0, 2.05212, 0, 6, 0, -2.05212, 0, 5.63816, -51.1568, 4, -8.908 )
+collision_layer = 5
+collision_mask = 5
 
 [node name="Target5" parent="Target_Container" instance=ExtResource( 4 )]
 transform = Transform( -5.43075, 0, -2.55088, 0, 6, 0, 2.55088, 0, -5.43075, 15.2483, 1.48935, -15.2084 )
+collision_layer = 5
+collision_mask = 5
+
+[node name="Drone_Container" type="Spatial" parent="."]
+
+[node name="Drone" parent="Drone_Container" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 100 )
 
 [node name="NPC" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9669, 0, -13.1232 )
@@ -84,6 +101,14 @@ shape = SubResource( 3 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource( 9 )
+
+[node name="Damage" type="ColorRect" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Background" type="ColorRect" parent="UI"]
 anchor_right = 1.0
